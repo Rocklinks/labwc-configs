@@ -1,0 +1,590 @@
+/* -----------------------------------------------------
+ * Import Matugen Colors
+ * ----------------------------------------------------- */
+@define-color blur_background rgba(26, 17, 15, 0.3);
+@define-color blur_background8 rgba(26, 17, 15, 0.8);
+
+    @define-color background #1a110f;
+
+    @define-color error #ffb4ab;
+
+    @define-color error_container #93000a;
+
+    @define-color inverse_on_surface #392e2b;
+
+    @define-color inverse_primary #8f4c35;
+
+    @define-color inverse_surface #f1dfda;
+
+    @define-color on_background #f1dfda;
+
+    @define-color on_error #690005;
+
+    @define-color on_error_container #ffdad6;
+
+    @define-color on_primary #55200c;
+
+    @define-color on_primary_container #ffdbd0;
+
+    @define-color on_primary_fixed #390c00;
+
+    @define-color on_primary_fixed_variant #723520;
+
+    @define-color on_secondary #442a21;
+
+    @define-color on_secondary_container #ffdbd0;
+
+    @define-color on_secondary_fixed #2c160e;
+
+    @define-color on_secondary_fixed_variant #5d4036;
+
+    @define-color on_surface #f1dfda;
+
+    @define-color on_surface_variant #d8c2bb;
+
+    @define-color on_tertiary #3a3005;
+
+    @define-color on_tertiary_container #f3e2a7;
+
+    @define-color on_tertiary_fixed #221b00;
+
+    @define-color on_tertiary_fixed_variant #51461a;
+
+    @define-color outline #a08d87;
+
+    @define-color outline_variant #53433f;
+
+    @define-color primary #ffb59d;
+
+    @define-color primary_container #723520;
+
+    @define-color primary_fixed #ffdbd0;
+
+    @define-color primary_fixed_dim #ffb59d;
+
+    @define-color scrim #000000;
+
+    @define-color secondary #e7bdb0;
+
+    @define-color secondary_container #5d4036;
+
+    @define-color secondary_fixed #ffdbd0;
+
+    @define-color secondary_fixed_dim #e7bdb0;
+
+    @define-color shadow #000000;
+
+    @define-color source_color #f96732;
+
+    @define-color surface #1a110f;
+
+    @define-color surface_bright #423733;
+
+    @define-color surface_container #271d1b;
+
+    @define-color surface_container_high #322825;
+
+    @define-color surface_container_highest #3d322f;
+
+    @define-color surface_container_low #231917;
+
+    @define-color surface_container_lowest #140c0a;
+
+    @define-color surface_dim #1a110f;
+
+    @define-color surface_tint #ffb59d;
+
+    @define-color surface_variant #53433f;
+
+    @define-color tertiary #d7c68d;
+
+    @define-color tertiary_container #51461a;
+
+    @define-color tertiary_fixed #f3e2a7;
+
+    @define-color tertiary_fixed_dim #d7c68d;
+
+/*@define-color on_primary #FFFFFF;
+@define-color icon_color #000000;
+@define-color border_color #000000;
+@define-color background #000000;*/
+@define-color primary_container @secondary;
+@define-color icon_color #FFFFFF;
+@define-color on_surface #000000;
+@define-color border_color #FFFFFF;
+@define-color background #FFFFFF;
+
+
+
+* {
+    font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(0,0,0,0.2);
+    background: transparent;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+.modules-left {
+    margin:6px 0px 6px 8px;
+}
+
+.modules-right {
+    margin:6px 8px 6px 0px;
+}
+
+.modules-center {
+    margin:6px 0px 6px 0px;
+}
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
+
+#ext-workspaces {
+    margin: 0px 7px 0px 0px;
+    min-width: 21px;
+    background-color: @background;
+    font-size: 16px;
+    color: @on_primary;
+    border-radius: 6px;
+    padding: 3px 5px 3px 5px;
+}
+
+#ext-workspaces:hover {
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+#ext-workspaces button {
+    padding: 0px 6px;
+    margin: 3px 3px;
+    border-radius: 8px;
+    color: @on_surface;
+    background-color: @background;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid @primary;
+}
+
+#ext-workspaces button.active {
+    color: @on_primary;
+    background: @primary;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    border-color: @primary;
+    min-width: 30px;
+}
+
+#ext-workspaces button:hover {
+    color: @on_surface;
+    background: #B799FF;
+    border-color: #B799FF;
+    border-radius: 15px;
+    box-shadow: none;
+}
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+    border-radius: 10px;
+    background-color: @surface;
+    border: 2px solid @border_color;
+    padding: 5px;
+    margin: 0px;
+}
+
+tooltip label {
+    color: #FFFFFF;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+    margin: 3px 15px 3px 0px;
+    padding: 2px 10px 0px 10px;
+    border-radius: 8px;
+    color:@icon_color;
+    font-size:16px;
+    font-weight:normal;
+}
+
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Custom Quicklinks
+ * ----------------------------------------------------- */
+
+
+
+#custom-waybarthemes {
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: @icon_color;
+}
+
+
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
+
+#custom-hypridle {
+    margin-right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    opacity: 1.0;
+    color: #FFFFFF;
+    border-color: @primary;
+    transition: all 0.3s ease-out;    
+}
+
+#custom-hypridle:hover {
+    margin-right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    opacity: 1.0;
+    color: #B799FF;
+    border-color: @primary;    
+}
+
+#custom-hypridle.activated {
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 1.0;
+    color: #B799FF;
+}
+
+/* -----------------------------------------------------
+ * App Launcher
+ * ----------------------------------------------------- */
+
+#custom-appmenu {
+    background-color: @background;
+    font-size: 16px;
+    color: @on_primary;
+    border-radius: 8px;
+    padding: 3px 10px 3px 10px;
+    margin: 3px 10px 3px 0px;
+    border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#custom-appmenu:hover {
+    color: #FFFFFF;
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+/* -----------------------------------------------------
+ * Custom Now Playing
+ * ----------------------------------------------------- */
+
+ #custom-nowplaying {
+    background-color: @background;
+    font-size: 11px;
+    color: @on_surface;
+    border-radius: 5px 5px 5px 5px;
+    padding: 0px 10px 0px 10px;
+    margin: 3px 0px 3px 15px;
+    opacity: 1.0;
+    border: 1px solid @border_color;
+}
+
+ #custom-nowplaying.playing {
+    background-color: @primary_container;
+    color: @on_primary_container;
+}
+
+ #custom-nowplaying.paused {
+    background-color: @background;
+}
+
+/* -----------------------------------------------------
+ * Custom Notification
+ * ----------------------------------------------------- */
+
+ #custom-notification {
+    margin: 0px 11px 0px 0px;
+    padding: 0px;
+    font-size: 24px;
+    font-family: "Material Icons";
+    color: #FFFFFF;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+    margin: 0px 14px 0px 0px;
+    padding: 0px;
+    font-size: 20px;
+    color: @icon_color;
+}
+
+#custom-exit:hover {
+    margin: 0px 14px 0px 0px;
+    padding: 0px;
+    font-size: 20px;
+    color: #B799FF
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+    background-color: @background;
+    font-size: 16px;
+    color: @on_surface;
+    border-radius: 8px;
+    padding: 2px 10px 0px 10px;
+    margin: 3px 10px 3px 0px;
+    border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#custom-updates:hover {
+    color: #FFFFFF;
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+
+
+/* -----------------------------------------------------
+ * Power Profiles Daemon
+ * ----------------------------------------------------- */
+
+#power-profiles-daemon {
+    margin: 0px 13px 0px 0px;
+    padding: 0px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+#power-profiles-daemon:hover {
+    color: #B799FF;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    background-color: @background;
+    font-size: 16px;
+    color: @on_primary;
+    border-radius: 8px;
+    padding: 1px 10px 0px 10px;
+    margin: 3px 0px 3px 0px;
+    border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#clock:hover {
+    color: #FFFFFF;
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+
+/* -----------------------------------------------------
+ * Backlight
+ * ----------------------------------------------------- */
+
+#backlight {
+    background-color: @background;
+    font-size: 16px;
+    color: @on_primary;
+    border-radius: 8px;
+    padding: 2px 10px 0px 10px;
+    margin: 3px 10px 3px 0px;
+    border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#backlight:hover {
+    color: #FFFFFF;
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+    background-color: @background;
+    font-size: 16px;
+    color: @on_primary;
+    border-radius: 8px;
+    padding: 2px 10px 0px 10px;
+    margin: 3px 10px 3px 0px;
+    opacity: 1.0;
+    border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#pulseaudio:hover {
+    color: #FFFFFF;
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+#pulseaudio.muted {
+    background-color: @on_primary_fixed;
+    color: @on_primary;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    background-color: @background;
+    font-size: 16px;
+    color: @on_primary;
+    border-radius: 8px;
+    padding: 2px 10px 0px 10px;
+    margin: 3px 10px 3px 0px;
+    border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#network.ethernet:hover {
+    color: #FFFFFF;
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+#network.wifi:hover {
+    color: #FFFFFF;
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+#network.ethernet {
+    background-color: @background;
+    color: @on_surface;
+}
+
+#network.wifi {
+    background-color: @background;
+    color: @on_primary;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    background-color: @background;
+    font-size: 16px;
+    color: @on_primary;
+    border-radius: 8px;
+    padding: 2px 10px 0px 10px;
+    margin: 3px 10px 3px 0px;
+    border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#bluetooth:hover {
+    color: #FFFFFF;
+    background: #B799FF;
+    border-color: #B799FF;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+    background-color: @background;
+    font-size: 16px;
+    color: @on_primary;
+    border-radius: 8px;
+    padding: 2px 15px 0px 10px;
+    margin: 3px 15px 3px 0px;
+    opacity: 1.0;
+    border: 2px solid @border_color;
+}
+
+#battery:hover {
+    background-color: #B799FF;
+    border: #B799FF;
+    color: #FFFFFF;
+}
+
+#battery.charging, #battery.plugged {
+    color: @on_primary;
+    background-color: @background;
+}
+
+@keyframes blink {
+    to {
+        background-color: @background;
+        color: @on_primary;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @error;
+    color: @on_error;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    padding: 0px 15px 0px 0px;
+}
+#tray:hover {
+    background-color: #B799FF;
+    border: #B799FF;
+    color: #FFFFFF;   
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+

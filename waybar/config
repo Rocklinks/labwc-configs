@@ -1,0 +1,45 @@
+{
+    // General Settings
+    "layer": "top",
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+    // Load Modules
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+    // Modules Left
+    "modules-left": [
+        "custom/appmenu",
+        "ext/workspaces",
+        "custom/updates",
+        "custom/empty",
+        
+    ],
+    // Modules Center
+    "modules-center": [
+        "clock",
+        "custom/empty",
+    ],
+  // Clock
+  "clock": {
+    "format": "{:%I:%M %p %a}",
+    "timezone": "Asia/Kolkata",
+    "tooltip-format": "{:%I:%M %p %d %a %b}",
+    "on-click": "",
+  },
+    // Modules Right    
+    "modules-right": [
+        "tray",
+        "network",
+        "bluetooth",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "power-profiles-daemon",
+        "custom/empty",
+        "custom/exit",
+    ]
+}

@@ -1,0 +1,73 @@
+
+configuration {
+	font:							"Feather 30";
+    disable-history:            	false;
+	sidebar-mode: 					false;
+	show-icons:                     false;
+}
+* {
+    background:     #1E2128;
+    background-alt: #292d37;
+    foreground:     #ABB2BF;
+    selected:       #5294E2;
+    active:         #98C379;
+    urgent:         #E06B74;
+}
+
+
+* {
+	background-color:				@background;
+	text-color:						@foreground;
+    background: #332E41;
+    background-light: #575268;
+    foreground: #DFDEF1;
+    foreground-dark: #988BA2;
+    primary: #C6AAE8;
+    bordercolor: #8caaee;
+
+}
+
+window {
+    transparency:                   "real";
+    border-radius:                  4px;
+    location:                       center;
+	width:							600px;
+    border:                         2px solid;       /* Added */
+    border-color:                   #f4b8e4;         /* Frappe Blue */
+    background-color:               @background;     /* Ensure contrast */
+}
+
+listview {
+    columns:						5;
+    lines:							1;
+    spacing:                        12px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    children:                       [ listview ];
+    spacing:                        20px;
+    margin:                         20px;
+}
+
+element {
+    background-color:               @background-light;
+    border-radius:                  4px;
+}
+
+element-text {
+    background-color: 				inherit;
+    text-color:       				inherit;
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         20px 15px 20px 15px;
+}
+
+element selected {
+	text-color: 					@background;
+	background-color:               @primary;
+	border-radius:                  4px;
+}

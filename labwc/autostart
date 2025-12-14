@@ -1,0 +1,55 @@
+
+###NetworkManager Applet ####
+nm-applet  &
+
+###Bluetooth Applet ####
+blueman-applet  &
+
+###Waybar ####
+waybar  &
+
+###Xfce4- panel ###
+xfce4-panel  &
+
+### Randr ###
+wlr-randr --output VGA-1 --mode 1920x1080@60.000000 --adaptive-sync disabled >/dev/null 2>&1 &
+
+###Fast Update gtk apps ###
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null 2&1 &
+
+###Wallpaper ###
+swaybg -o 'eDP-1' -i "/home/rocklin/Pictures/1338701.png" -m fill &
+
+###Polkit Gnome ###
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 > /dev/null 2&1 &
+
+###XDG-DESKTOP-PORTAL GTK
+/usr/lib/xdg-desktop-portal-gtk &
+
+#### Display fix #####
+
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=labwc
+
+
+### Maybe Optional ####
+export WAYLAND_DISPLAY=wayland-0
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+
+###KDE Connect Indicator ###
+kdeconnect-indicator &
+
+###Notifications ###
+swaync  &
+
+
+### Lockscreen ###
+swayidle -w \
+    timeout 600 'wlopm --off *' \
+        resume 'wlopm --on *' \ 
+    timeout 900 'swaylock -f --image ~/Pictures/Balcony.jpg' \.
+    timeout 1200 'systemctl suspend' \
+    before-sleep 'swaylock -f --image ~/Pictures/Balcony.jpg' \
+    >/dev/null 2>&1 &
+

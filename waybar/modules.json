@@ -1,0 +1,194 @@
+{
+  // System tray
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+
+  // Updates Count
+  "custom/updates": {
+    "format": "  {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/updates.sh",
+    "interval": 1800,
+    "signal": 1,
+    "hide-empty-text": true,
+    "on-click": "xfce4-terminal -e 'sudo pacman -Syu --noconfirm'"
+  },
+
+"ext/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
+    }
+    // ...other options
+},
+
+  // Idle inhibitor
+  "custom/idle": {
+    "format": "",
+    "return-type": "json",
+    "escape": true,
+    "exec-on-event": true,
+    "interval": 60,
+    "on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
+  },
+
+  // Network
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": "  {ifname}",
+    "format-disconnected": "Disconnected ⚠",
+    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    // CHANGED: Replaced KDE's network manager with the default Xfce/GTK 
+    // network manager GUI command.
+    "on-click": "nm-connection-editor",
+    "on-click-right": "nm-applet" // Open the simple network menu/applet
+  },
+
+  // Battery
+  "battery": {
+    "interval": 1,
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    // CHANGED: Replaced KDE's power settings with Xfce's power manager GUI command.
+    "on-click": "xfce4-power-manager-settings"
+  },
+
+  // Power Profiles Daemon
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    // CHANGED: Replaced KDE's Pulseaudio settings with the generic GTK/Xfce mixer.
+    // `pavucontrol` is the most common mixer GUI.
+    "on-click": "pavucontrol"
+  },
+
+  // Plasma inhibitor
+  "custom/hypridle": {
+    "format": "{text}",
+    "font-family": "Font Awesome 6 Free, Noto Sans, sans-serif",
+    "font-weight": "900",
+    "return-type": "json",
+    "escape": true,
+    "exec-on-event": true,
+    "interval": 60,
+    "exec": "~/.config/waybar/scripts/status.sh",
+    "on-click": "~/.config/waybar/scripts/status.sh toggle"
+  },
+
+  // Empty
+  "custom/empty": {
+    "format": ""
+  },
+
+  // Plasma Launcher
+  "custom/appmenu": {
+    // START APPS LABEL
+    "format": " ",
+    // END APPS LABEL
+    "on-click": "rofi -show drun",
+    "on-click-right": "rofi -show filebrowser",
+    "tooltip-format": "Left: Open the application launcher\nRight click: Show run dialog"
+  },
+
+  // Power Menu
+  "custom/exit": {
+    "format": "",
+    "on-click": "~/.config/rofi/power.sh",
+    "on-click-right": "labwc --exit" 
+  },
+
+  // Bluetooth
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    // CHANGED: Replaced KDE's Bluetooth settings with the common GTK/Xfce 
+    // Bluetooth manager GUI command.
+    "on-click": "blueman-manager",
+    "format-no-controller": ""
+  },
+
+  // backlight:
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "scroll-step": 1
+  }
+}

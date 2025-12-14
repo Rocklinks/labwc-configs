@@ -1,0 +1,50 @@
+XDG_SESSION_TYPE=wayland
+QT_QPA_PLATFORM=wayland
+GDK_BACKEND=wayland,x11
+XCURSOR_THEME=catppuccin-mocha-blue-cursors
+XCURSOR_SIZE=26
+XKB_DEFAULT_LAYOUT=us
+ADW_DISABLE_PORTAL=1
+MOZ_ENABLE_WAYLAND=1
+WLR_RENDERER=vulkan
+_JAVA_AWT_WM_NONREPARENTING=1
+
+# --- NVIDIA Wayland/wlroots Configuration ---
+# Specifies the wlroots backend to use (usually drm for NVIDIA/Wayland)
+GBM_BACKEND=nvidia-drm
+
+# Driver for hardware video acceleration libraries (e.g., used by VA-API)
+LIBVA_DRIVER_NAME=nvidia
+
+# Forces SDL (Simple DirectMedia Layer) applications to use the Wayland backend
+SDL_VIDEODRIVER=wayland
+
+# Enables NVIDIA's proprietary GLX vendor library
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# Enables NVIDIA Prime Render Offload (for Optimus/laptops)
+__NV_PRIME_RENDER_OFFLOAD=1
+
+# NVIDIA Vulkan layer for Optimus/Render Offload
+__VK_LAYER_NV_optimus=NVIDIA_only
+
+# --- VM/Software/Cursor Workarounds (Optional/Compatibility) ---
+# Disables hardware cursors (often required for some older NVIDIA/VM setups)
+WLR_NO_HARDWARE_CURSORS=1 
+
+# Allows wlroots renderer to use software fallback (useful in VMs or for debugging)
+WLR_RENDERER_ALLOW_SOFTWARE=1
+
+# --- Firefox/Mozilla Hardware Acceleration ---
+# Disables sandbox for RDD (Render Data Decoder) process (needed for NVIDIA VA-API)
+MOZ_DISABLE_RDD_SANDBOX=1
+
+# Forces EGL to use the Wayland platform interface
+EGL_PLATFORM=wayland
+
+# Uncomment WLR_DRM_NO_ATOMIC=1 if you experience issues (e.g., tearing)
+# WLR_DRM_NO_ATOMIC=1 
+
+# Uncomment __GL_VRR_ALLOWED=1 if you want to allow Variable Refresh Rate
+# __GL_VRR_ALLOWED=1
+
